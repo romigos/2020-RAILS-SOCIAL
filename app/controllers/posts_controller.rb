@@ -1,9 +1,10 @@
 class PostsController < ApplicationController
   def index
+    @posts = Post.all
   end
 
   def show
-
+    @post = Post.find(params[:id])
   end
 
   def new
@@ -15,5 +16,9 @@ class PostsController < ApplicationController
     @post.save
 
     redirect_to '/posts/' + @post.id.to_s
+  end
+
+  def edit
+    @post = Post.find(params[:id])
   end
 end
