@@ -1,19 +1,23 @@
 <!-- Blog Entries Column -->
 <div class="col-md-8">
 
-  <h1 class="my-4">Все пости</h1>
+  <h1 class="my-4">
+    <% if @topic == nil %>
+      Все посты
+    <% else %>
+      <%= @topic.title %>
+    <% end %>
+    <% @posts.each do |post| %></h1>
 
-  <% @posts.each do |post| %>
-
-    <!-- Blog Post -->
-    <div class="card mb-4">
-      <div class="card-body">
-        <h2 class="card-title"><%= post.title %></h2>
-        <p class="card-text"><%= post.body.length <= 2000 ? post.body : post.body[0..2000] %></p>
-        <a href="/post/<%= post.id %>" class="btn btn-primary">Читать дальше &rarr;</a>
-      </div>
-      <div class="card-footer text-muted">
-        <%= post.created_at %>>
+      <!-- Blog Post -->
+      <div class="card mb-4">
+        <div class="card-body">
+          <h2 class="card-title"><%= post.title %></h2>
+          <p class="card-text"><%= post.body.length <= 2000 ? post.body : post.body[0..2000] %></p>
+          <a href="/post/<%= post.id %>" class="btn btn-primary">Читать дальше &rarr;</a>
+        </div>
+        <div class="card-footer text-muted">
+          <%= post.created_at %>>
       </div>
     </div>
   <% end %>

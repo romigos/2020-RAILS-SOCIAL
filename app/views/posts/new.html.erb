@@ -6,7 +6,7 @@
     </div>
     <div class="form-group">
       <label for="exampleFormControlSelect1">Выберите тему</label>
-      <select class="form-control" name="post[topic.id]">
+      <select class="form-control" name="post[topic_id]">
         <% @topics.each do |topic| %>
           <option value="<%= topic.id %>"><%= topic.title %></option>
         <% end %>
